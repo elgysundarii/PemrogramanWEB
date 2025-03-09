@@ -3,88 +3,258 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registrasi & Login</title>
+    <title>Login</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Nunito', sans-serif;
+        }
+        
         body {
-            font-family: Arial, sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            background-color: #f4f4f4;
-            flex-direction: column;
+            min-height: 100vh;
+            background: linear-gradient(120deg, #2c59c3, #4f78dd);
         }
+        
         .container {
+            display: flex;
+            width: 850px;
             background: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            width: 350px;
-            text-align: center;
-            margin: 10px;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+            animation: slideIn 0.6s ease;
         }
-        input {
-            width: calc(100% - 16px);
-            padding: 8px;
-            margin: 8px 0;
-            border: 1px solid #ccc;
-            border-radius: 4px;
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
-        button {
-            background-color: #4CAF50;
+        
+        .left {
+            width: 50%;
+            background: url('https://cdnjs.cloudflare.com/ajax/libs/simple-icons/6.0.0/simpleicons.svg') #2c59c3;
+            background-blend-mode: soft-light;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
             color: white;
-            padding: 10px;
-            border: none;
-            width: 100%;
-            cursor: pointer;
-            border-radius: 4px;
+            text-align: center;
+            padding: 40px 20px;
+            position: relative;
         }
+        
+        .left-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .left h2 {
+            font-size: 26px;
+            margin-bottom: 20px;
+            line-height: 1.4;
+            font-weight: 700;
+        }
+        
+        .login-icon {
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+        
+        .illustration-container {
+            width: 100%;
+            margin: 15px 0;
+            position: relative;
+        }
+        
+        .illustration-container svg {
+            width: 80%;
+            height: auto;
+            filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+        }
+        
+        .right {
+            width: 50%;
+            padding: 40px 30px;
+        }
+        
+        h2 {
+            margin-bottom: 15px;
+            color: #333;
+            font-weight: 700;
+        }
+        
+        p {
+            color: #666;
+            margin-bottom: 25px;
+            font-size: 15px;
+        }
+        
+        .input-group {
+            margin-bottom: 15px;
+        }
+        
+        .input-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+            font-size: 14px;
+            font-weight: 600;
+        }
+        
+        .input-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 14px;
+            transition: border 0.3s;
+        }
+        
+        .input-group input:focus {
+            outline: none;
+            border-color: #2c59c3;
+        }
+        
+        button {
+            background: #2c59c3;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
         button:hover {
-            background-color: #45a049;
+            background: #214aa8;
+            transform: translateY(-2px);
+        }
+        
+        .forgot-password {
+            margin-top: 15px;
+            font-size: 14px;
+            text-align: right;
+        }
+        
+        .forgot-password a {
+            color: #666;
+            text-decoration: none;
+        }
+        
+        .forgot-password a:hover {
+            color: #2c59c3;
+        }
+        
+        .register-link {
+            margin-top: 20px;
+            font-size: 14px;
+            text-align: center;
+        }
+        
+        .register-link a {
+            color: #2c59c3;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .register-link a:hover {
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                width: 90%;
+            }
+            
+            .left, .right {
+                width: 100%;
+            }
+            
+            .left {
+                padding: 30px 20px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container" id="registerContainer">
-        <h2>Registrasi</h2>
-        <form id="registerForm">
-            <input type="text" id="name" placeholder="Nama" required>
-            <input type="email" id="email" placeholder="Email" required>
-            <input type="password" id="password" placeholder="Password" required>
-            <input type="file" id="photo" accept="image/*" required>
-            <button type="submit">Daftar</button>
-        </form>
-        <p>Sudah punya akun? <a href="#" onclick="toggleForm()">Login</a></p>
+    <div class="container">
+        <div class="left">
+            <div class="left-content">
+                <i class="fas fa-lock login-icon"></i>
+                <h2>Welcome Back<br>to License Manager</h2>
+                <div class="illustration-container">
+                    <svg viewBox="0 0 500 400" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Background Elements -->
+                        <rect x="50" y="50" width="400" height="300" rx="20" fill="#ffffff" opacity="0.1" />
+                        <circle cx="120" cy="120" r="30" fill="#ffffff" opacity="0.2" />
+                        <circle cx="380" cy="260" r="40" fill="#ffffff" opacity="0.2" />
+                        
+                        <!-- Dashboard Shape -->
+                        <rect x="130" y="100" width="240" height="180" rx="8" fill="#ffffff" />
+                        
+                        <!-- Dashboard Header -->
+                        <rect x="130" y="100" width="240" height="30" rx="8" fill="#4f78dd" opacity="0.8" />
+                        <circle cx="145" cy="115" r="5" fill="#ff5f5f" />
+                        <circle cx="160" cy="115" r="5" fill="#ffbb3c" />
+                        <circle cx="175" cy="115" r="5" fill="#2ecc71" />
+                        
+                        <!-- Dashboard Content -->
+                        <rect x="145" y="145" width="70" height="10" rx="2" fill="#4f78dd" opacity="0.6" />
+                        <rect x="145" y="160" width="210" height="8" rx="2" fill="#ddd" />
+                        <rect x="145" y="175" width="210" height="8" rx="2" fill="#ddd" />
+                        <rect x="145" y="190" width="150" height="8" rx="2" fill="#ddd" />
+                        
+                        <!-- License Card -->
+                        <rect x="145" y="210" width="100" height="55" rx="4" fill="#f5f5f5" />
+                        <rect x="155" y="220" width="50" height="8" rx="2" fill="#4f78dd" />
+                        <rect x="155" y="235" width="80" height="6" rx="1" fill="#888" />
+                        <rect x="155" y="245" width="60" height="6" rx="1" fill="#888" />
+                        
+                        <!-- License Card 2 -->
+                        <rect x="255" y="210" width="100" height="55" rx="4" fill="#f5f5f5" />
+                        <rect x="265" y="220" width="50" height="8" rx="2" fill="#4f78dd" />
+                        <rect x="265" y="235" width="80" height="6" rx="1" fill="#888" />
+                        <rect x="265" y="245" width="60" height="6" rx="1" fill="#888" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+        <div class="right">
+            <h2>Login</h2>
+            <p>Access your license management dashboard</p>
+            <form action="#" method="POST">
+                <div class="input-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" required>
+                </div>
+                <button type="submit">Login</button>
+            </form>
+            <p class="forgot-password"><a href="#">Forgot password?</a></p>
+            <p class="register-link">Don't have an account? <a href="register.html">Sign up</a></p>
+        </div>
     </div>
-
-    <div class="container" id="loginContainer" style="display: none;">
-        <h2>Login</h2>
-        <form id="loginForm">
-            <input type="email" id="loginEmail" placeholder="Email" required>
-            <input type="password" id="loginPassword" placeholder="Password" required>
-            <button type="submit">Masuk</button>
-        </form>
-        <p>Belum punya akun? <a href="#" onclick="toggleForm()">Daftar</a></p>
-    </div>
-
-    <script>
-        function toggleForm() {
-            document.getElementById('registerContainer').style.display =
-                document.getElementById('registerContainer').style.display === 'none' ? 'block' : 'none';
-            document.getElementById('loginContainer').style.display =
-                document.getElementById('loginContainer').style.display === 'none' ? 'block' : 'none';
-        }
-
-        document.getElementById('registerForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-            alert('Registrasi berhasil!');
-            toggleForm();
-        });
-
-        document.getElementById('loginForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-            alert('Login berhasil!');
-        });
-    </script>
 </body>
 </html>
