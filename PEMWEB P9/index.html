@@ -1,0 +1,89 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Classroom Pemweb</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="navbar">
+    <a href="#" class="active">Stream</a>
+    <a href="#">Classwork</a>
+    <a href="#">People</a>
+    <a href="#">Grades</a>
+  </div>
+
+  <div class="header">
+    <div class="header-content">
+      <div class="text">
+        <h1>2312368 - Elgy Sundari Pemrograman WEB</h1>
+        <p>2023 RPL 4B</p>
+      </div>
+      <button class="customize-btn">Customize</button>
+    </div>
+  </div>
+
+  <div class="main">
+    <div class="sidebar">
+      <div class="card">
+        <h3><span class="icon">📚</span> Teaching</h3>
+        <ul>
+          <li class="sidebar-item"><span class="icon">📘</span> Teknologi Basis Data 4C</li>
+          <li class="sidebar-item"><span class="icon">📗</span> <strong>RL210 - Pemrograman WEB</strong></li>
+          <li class="sidebar-item"><span class="icon">📕</span> 1B Pengantar RPL</li>
+          <li class="sidebar-item"><span class="icon">📙</span> 3B Pemodelan Perangkat Lunak</li>
+          <li class="sidebar-item"><span class="icon">📒</span> 5A Kecerdasan Buatan</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3><span class="icon">🏷️</span> Class Name</h3>
+        <p>RL210 - Pemrograman WEB</p>
+      </div>
+      <div class="card">
+        <h3><span class="icon">🔗</span> Quick Links</h3>
+        <button onclick="handleAddLink()">+ Add link</button>
+      </div>
+      <div class="card">
+        <h3><span class="icon">📹</span> Meet</h3>
+        <button onclick="handleGenerateLink()">Generate link</button>
+      </div>
+      <div class="card">
+        <h3><span class="icon">🔑</span> Class code</h3>
+        <p class="class-code">vhldow7</p>
+      </div>
+      <div class="card">
+        <h3><span class="icon">📅</span> Upcoming</h3>
+        <p>No work due soon</p>
+      </div>
+    </div>
+
+    <div class="content">
+      <div class="announce">
+        <img src="https://www.gravatar.com/avatar?d=mp" alt="profile" class="avatar">
+        <input type="text" placeholder="Announce something to your class" />
+      </div>
+      <div class="card">
+        <p><strong>Dian Anggraini</strong> - 1:27 PM</p>
+        <div class="post">
+          <p>asdasdasdasdas</p>
+        </div>
+      </div>
+      <div class="card">
+        <p><strong>Dian Anggraini</strong> - 1:26 PM</p>
+        <div class="post">
+          <p>Halo semuanya ...</p>
+        </div>
+      </div>
+      <div class="card comment-section">
+        <textarea placeholder="Write a comment..." class="comment-input"></textarea>
+        <button class="post-comment-btn">Post</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
